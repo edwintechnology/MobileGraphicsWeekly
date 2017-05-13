@@ -1,0 +1,64 @@
+Declarations:
+{
+	vector<vec4> _pointLightsLocal;
+	vector<vec4> _cameraPositionsLocal;
+	vector<vec3> _cameraLookatVectorsLocal;
+	vector<vec3> _cameraUpVectorsLocal;
+    
+	vector<vec4> _pointLightDiffuseIntensitiesLocal;
+	vector<vec4> _pointLightSpecularIntensitiesLocal;
+}
+
+@property (nonatomic)vector<vec4> *cameraPositions;
+@property (nonatomic)vector<vec3> *cameraLookatVectors;
+@property (nonatomic)vector<vec3> *cameraUpVectors;
+
+@property (nonatomic)vector<vec4> *pointLights;
+@property (nonatomic)NSInteger currentPointLightIndex;
+@property (nonatomic)NSInteger currentNullLightIndex;
+
+@property (nonatomic)vec4 pointLightSceneAmbientIntensity;
+@property (nonatomic)vector<vec4> *pointLightDiffuseIntensities;
+@property (nonatomic)vector<vec4> *pointLightSpecularIntensities;
+
+
+Initializations:
+        
+        self.pointLightSceneAmbientIntensity = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+        
+        _pointLightsLocal.push_back(vec4(-0.35942f,0.53081f, 0.99059f,1.0f));
+        
+        _pointLightDiffuseIntensitiesLocal.push_back(vec4(2.5f, 2.5f, 2.5f, 1.0f));
+        _pointLightSpecularIntensitiesLocal.push_back(vec4(.8f, .8f, .8f,1.0f));
+        
+        _cameraPositionsLocal.push_back(vec4(vec3(0.0f,0.0f, 1.0f),1.0f));
+        _cameraLookatVectorsLocal.push_back(vec3(0.0f,0.0f,0.0f));
+        _cameraUpVectorsLocal.push_back(vec3(0.0f, 1.0f, 0.000001f));
+        self.currentPointLightIndex = 0; // Current index into array of lights
+        
+        self.pointLights = &_pointLightsLocal;
+        self.pointLightDiffuseIntensities = &_pointLightDiffuseIntensitiesLocal;
+        self.pointLightSpecularIntensities = &_pointLightSpecularIntensitiesLocal;
+        
+        self.cameraPositions = &_cameraPositionsLocal;
+        self.cameraLookatVectors = &_cameraLookatVectorsLocal;
+        self.cameraUpVectors = &_cameraUpVectorsLocal;
+
+Note:
+
+	I parse in the material values from the mtl file..
+	
+	here are the initial material values that I set:
+		Ka 0.000000 0.000000 0.000000 (i.e. ambient rgb)
+		Kd 0.020103 0.013395 0.640000 (i.e. diffuse rgb)
+		Ks 0.500000 0.500000 0.500000 (i.e. specular rgb)
+	
+	and here is the initial specular exponent that I use:
+	350 (1 - 100 is for rubber like material, 300 - 500 for most metals.. I reference this in my slides also)
+	also the value is typically between 0 - 1000
+	
+	For the demonstration I hard coded in the specular exponents initial value instead of using the one that I parsed from the NS attribute in the .mtl file
+	because I had based the demo on the monkey example which had a slider to change the value dynamically and to gain the benefits of rapid development for the prototypes
+	(i.e. being able to simply adjust the specular exponents value in code to find the best effect for the demonstration)
+	
+	

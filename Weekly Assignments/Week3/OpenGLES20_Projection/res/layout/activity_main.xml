@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+    
+
+        <com.example.opengles20_projection.MyGLSurfaceView
+            android:id="@+id/surfaceviewclass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+        android:id="@+id/swapBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/swap" />
+
+        <Button
+            android:id="@+id/Down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/d" />
+
+        <Button
+            android:id="@+id/Up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/Down"
+            android:layout_centerHorizontal="true"
+            android:text="@string/u" />
+
+        <Button
+            android:id="@+id/Left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/Up"
+            android:text="@string/l" />
+
+        <Button
+            android:id="@+id/Right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Up"
+            android:layout_toRightOf="@+id/Up"
+            android:text="@string/r" />
+
+        <Button
+            android:id="@+id/Far"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/Up"
+            android:layout_alignBottom="@+id/Up"
+            android:layout_toRightOf="@+id/Up"
+            android:text="@string/f" />
+
+        <Button
+            android:id="@+id/Near"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/Down"
+            android:layout_toLeftOf="@+id/Up"
+            android:text="@string/n" />
+
+</RelativeLayout>

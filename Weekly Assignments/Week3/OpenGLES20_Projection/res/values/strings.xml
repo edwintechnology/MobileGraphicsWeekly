@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">OpenGLES20_Projection</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="swap">Swap View</string>
+	<string name="u">Up</string>
+	<string name="d">Down</string>
+	<string name="l">Left</string>
+	<string name="r">Right</string>
+	<string name="n">Near</string>
+	<string name="f">Far</string>
+</resources>
